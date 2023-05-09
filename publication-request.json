@@ -1,12 +1,12 @@
 {
-  "package-id": "medcom.fhir.dk.hospitalnotificationtestscripts",
-  "version": "3.0.0",
-  "path": "http://medcomfhir.dk/ig/hospitalnotificationtestscripts/3.0.0",
+  "package-id": "medcom.fhir.dk.acknowledgementtestscripts",
+  "version": "2.0.0",
+  "path": "http://medcomfhir.dk/ig/acknowledgementtestscripts/2.0.0",
   "status": "release",
   "sequence": "Release",
   "milestone" : true,
-  "title": "HospitalNotification Testscripts",
-  "category": "MedCom HospitalNotification Testscripts",
-  "introduction": "The MedCom HospitalNotification Testscripts Implementation Guide",
+  "title": "Acknowledgement Testscripts",
+  "category": "MedCom Acknowledgement Testscripts",
+  "introduction": "The MedCom Acknowledgement Testscripts Implementation Guide",
   "descmd": "@release-notes.md"
 }

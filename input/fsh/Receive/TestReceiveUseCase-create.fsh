@@ -1,5 +1,5 @@
 //Get STIN
-Instance: HospitalNotification_TestScript_receive-STIN-A1
+Instance: Acknowledgement_TestScript_receive-STIN-A1
 InstanceOf: TestScript
 * insert Metadata
 * id = "hospitalnotification-receive-stin-a1"

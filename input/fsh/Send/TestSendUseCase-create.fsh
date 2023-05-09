@@ -1,10 +1,32 @@
-//STIN.A1
-Instance: HospitalNotification_TestScript_STIN-A1
+//OK
+Instance: Acknowledgement_TestScript_OK
 InstanceOf: TestScript
 * insert Metadata
-* id = "hospitalnotification-send-stin-a1"
-* description = "Send: Start hospital stay - admitted, without request for a reportOfAdmission."
-* title = "Send: Start hospital stay - admitted - STIN.A1"
-* url = "http://medcomfhir.dk/ig/hospitalnotificationtestscript/hospitalnotification-send-stin-a1" 
-* name = "HospitalNotificationTestScript"
-* insert createInitialMessage(STIN, 01, /FHIRSandbox/MedCom/HospitalNotification/v300/Send/Fixtures/HospitalNotification-fixture.xml, admit-inpatient, IMP, in-progress, false) 
+* id = "acknowledgement-send-ok"
+* description = "Send acknowledgement - OK"
+* title = "Send acknowledgement - OK"
+* url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-ok" 
+* name = "AcknowledgementTestScript"
+* insert createInitialMessage(STIN, 01, /FHIRSandbox/MedCom/Acknowledgement/v200/Send/Fixtures/HospitalNotification-fixture.xml, admit-inpatient, IMP, in-progress, false) 
+
+//Fatal Error
+Instance: Acknowledgement_TestScript_Fatal-error
+InstanceOf: TestScript
+* insert Metadata
+* id = "acknowledgement-send-fatal-error"
+* description = "Send acknowledgement - Fatal Error"
+* title = "Send acknowledgement - Fatal Error"
+* url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-fatal-error" 
+* name = "AcknowledgementTestScript"
+* insert createInitialMessage(STIN, 01, /FHIRSandbox/MedCom/Acknowledgement/v200/Send/Fixtures/HospitalNotification-fixture.xml, admit-inpatient, IMP, in-progress, false) 
+
+//Transient Error
+Instance: Acknowledgement_TestScript_Transient-error
+InstanceOf: TestScript
+* insert Metadata
+* id = "acknowledgement-send-transient-error"
+* description = "Send acknowledgement - Transient Error"
+* title = "Send acknowledgement - Transient Error"
+* url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-transient-error" 
+* name = "AcknowledgementTestScript"
+* insert createInitialMessage(STIN, 01, /FHIRSandbox/MedCom/Acknowledgement/v200/Send/Fixtures/HospitalNotification-fixture.xml, admit-inpatient, IMP, in-progress, false) 
