@@ -8,7 +8,7 @@ RuleSet: operationDeleteSetup(destinationUri)
 //* setup[=].action[=].operation.params = "?message.identifier=${{bundleid}}"
 * setup[=].action[=].operation.params = "?message.destination-uri=${{destinationUri}}"
 
-RuleSet: operationCreateSetup(type, number)
+RuleSet: operationCreateSetup(responseCode, number)
 * setup[=].action[+].operation.type.system = "http://terminology.hl7.org/CodeSystem/testscript-operation-codes"
 * setup[=].action[=].operation.type.code = #create
 * setup[=].action[=].operation.resource = #Bundle
@@ -16,31 +16,31 @@ RuleSet: operationCreateSetup(type, number)
 * setup[=].action[=].operation.accept = #xml
 * setup[=].action[=].operation.contentType = #xml
 * setup[=].action[=].operation.encodeRequestUrl = true
-//* setup[=].action[=].operation.responseId = "create-message-{type}"
-* setup[=].action[=].operation.sourceId = "create-{type}-{number}"
+//* setup[=].action[=].operation.responseId = "create-message-{responseCode}"
+* setup[=].action[=].operation.sourceId = "create-{responseCode}-{number}"
 
-RuleSet: operationCreateMessage(type, number)
-* test[+].id = "hospitalnotification-create-{type}-{number}" // Update hospitalnotification
-* test[=].name = "Create a HospitalNotification {type} Message {number}" 
-* test[=].description = "Post HospitalNotification to the server." 
+RuleSet: operationCreateMessage(responseCode, number)
+* test[+].id = "message-create-{responseCode}-{number}" // Update hospitalnotification
+* test[=].name = "Create an Acknowledegment {responseCode} Message {number}" 
+* test[=].description = "Post Acknowledegment to the server." 
 * test[=].action[+].operation.type.system = "http://terminology.hl7.org/CodeSystem/testscript-operation-codes"
 * test[=].action[=].operation.type.code = #create
 * test[=].action[=].operation.resource = #Bundle
-* test[=].action[=].operation.description = "Post a Hospitalnotification"
+* test[=].action[=].operation.description = "Post an Acknowledegment"
 * test[=].action[=].operation.destination = 1
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
-* test[=].action[=].operation.responseId = "create-message-{type}"
-* test[=].action[=].operation.sourceId = "create-{type}-{number}" 
+* test[=].action[=].operation.responseId = "create-message-{responseCode}"
+* test[=].action[=].operation.sourceId = "create-{responseCode}-{number}" 
 
-RuleSet: operationReadMessage(type, number, destinationUri, bundleid)
-* test[+].id = "hospitalnotification-read-{type}-{number}" // Update HospitalNotification
-* test[=].name = "Get a HospitalNotification {type} Message {number}"
-* test[=].description = "GET a Hospital notification. The expected response is a 200(OK) with a payload of the Hospital notification resource in XML format."
+RuleSet: operationReadMessage(responseCode, number, destinationUri, bundleid)
+* test[+].id = "message-read-{responseCode}-{number}" // Update Acknowledegment
+* test[=].name = "Get a {responseCode} message {number}"
+* test[=].description = "GET a message. The expected response is a 200(OK) with a payload of the message resource in XML format."
 * test[=].action[+].operation.type.system = "http://terminology.hl7.org/CodeSystem/testscript-operation-codes"
 * test[=].action[=].operation.type.code = #read
 * test[=].action[=].operation.resource = #Bundle
-* test[=].action[=].operation.description = "Receive Hospital Notification"
+* test[=].action[=].operation.description = "Receive message"
 * test[=].action[=].operation.accept = #xml
 * test[=].action[=].operation.destination = 1
 * test[=].action[=].operation.encodeRequestUrl = true

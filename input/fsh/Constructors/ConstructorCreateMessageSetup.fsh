@@ -1,4 +1,4 @@
-RuleSet: createInitialMessageSetup(responseCode, number, fixture, destinationUri)
+RuleSet: createMessageSetup(responseCode, number, fixture)
 
 /* 
 Beskriver server og client for dette testsetup
@@ -25,7 +25,6 @@ Beskriver anvendte variable
 /* 
 Beskriver de operationer der udføres i denne test. Her er det kun setup operationer
 */
-* insert operationDeleteSetup({destinationUri})
 * insert operationCreateSetup({responseCode}, {number})
 
 /* 

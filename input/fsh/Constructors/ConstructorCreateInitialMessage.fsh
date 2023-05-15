@@ -1,4 +1,4 @@
-RuleSet: createInitialMessage(type, number, fixture, activityCode, encounterClass, encounterStatus, reportOfAdmission)
+RuleSet: createInitialMessage(responseCode, number, fixture)
 
 /* 
 Beskriver server og client for dette testsetup
@@ -14,34 +14,28 @@ Beskriver den profil, der valideres op mod
 /* 
 Beskriver anvendte fixtures
 */
-* insert fixtureCreateMessage({fixture}, {type}, {number})
+* insert fixtureCreateMessage({fixture}, {responseCode}, {number})
 
 /* 
 Beskriver anvendte variable
 */ 
-//* insert variableEncounterResourceIdentifier({type}, {number})
-* insert variableMessageHeaderId({type})
-* insert variableEpisodeOfCareIdentifier({type})
-* insert variableSearchParamIdentifier({type})
-* insert variableOccurredDateTime({type})
+//* insert variableEncounterResourceIdentifier({responseCode}, {number})
+* insert variableEpisodeOfCareIdentifier({responseCode})
+* insert variableSearchParamIdentifier({responseCode})
+* insert variableOccurredDateTime({responseCode})
 
 /* 
 Beskriver den operation der udføres i denne test.
 */
-* insert operationCreateMessage({type}, {number})
+* insert operationCreateMessage({responseCode}, {number})
 
 /* 
 Beskriver den vurdering der sker af operationen
 */
+* insert assertValidateProfiles
 * insert assertResponseCodeTest
 * insert assertPayload
 * insert assertMessageHeaderEventCoding
-* insert assertEncounterClass({encounterClass})
-* insert assertEncounterStatus({encounterStatus})
-* insert assertProvenanceActivityCode({activityCode})
-* insert assertMessageHeaderReportOfAdmission({reportOfAdmission})
 * insert assertProvenanceTarget
-* insert assertStructureEpisodeOfCareID
-* insert assertMessageHeaderReportOfAdmissionReceiver({reportOfAdmission})
 
 

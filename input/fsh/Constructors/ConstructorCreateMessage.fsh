@@ -1,4 +1,4 @@
-RuleSet: createMessage(type, number, fixture, activityCode, encounterClass, encounterStatus, role, messageHeaderid, countProvenances, episodeOfCareID)
+RuleSet: createMessage(responseCode, number, fixture, role, messageHeaderid)
 
 /* 
 Beskriver server og client for dette testsetup
@@ -9,7 +9,7 @@ Beskriver server og client for dette testsetup
 /* 
 Beskriver anvendte fixtures
 */
-* insert fixtureCreateMessage({fixture}, {type}, {number})
+* insert fixtureCreateMessage({fixture}, {responseCode}, {number})
 
 /* 
 Beskriver den profil, der valideres op mod
@@ -19,28 +19,27 @@ Beskriver den profil, der valideres op mod
 /* 
 Beskriver anvendte variable
 */
-//* insert variableEncounterResourceIdentifier({type}, {number})
-* insert variableMessageHeaderId({type})
-* insert variableEpisodeOfCareIdentifier({type})
-//* insert variableSearchParamIdentifier({type})
+//* insert variableEncounterResourceIdentifier({responseCode}, {number})
+//* insert variableMessageHeaderId({responseCode})
+//* insert variableSearchParamIdentifier({responseCode})
 
 /* 
 Beskriver den operation der udføres i denne test.
 */
-* insert operationCreateMessage({type}, {number})
+* insert operationCreateMessage({responseCode}, {number})
 
 /* 
 Beskriver den vurdering der sker af operationen.
 */
 * insert assertResponseCodeTest
 * insert assertPayload
+* insert assertValidateProfiles
 * insert assertMessageHeaderid({messageHeaderid})
 * insert assertMessageHeaderEventCoding
+* insert assertMessageHeaderResponseCode({responseCode})
+* insert assertOperationOutcome
 * insert assertProvenanceEntityRole({role})
-* insert assertEncounterClass({encounterClass})
-* insert assertEncounterStatus({encounterStatus})
-* insert assertProvenanceActivityCode({activityCode})
 * insert assertProvenanceTarget
-* insert assertProvenanceEntityCount({countProvenances})
-* insert assertEpisodeOfCareID({episodeOfCareID})
+* insert assertProvenanceEntityCount
+* insert assertProvenanceActivityCode
 //* insert assertOccurredTimeStamp({occurredDateTime})

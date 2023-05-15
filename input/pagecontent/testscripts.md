@@ -55,9 +55,7 @@ Which results in the following variable to be used in the GET operation. For ins
 
 
 ### Send Acknowledgement test scripts
-When sending an Acknowledgement, a POST operation is required for all types of messages. All send test scripts requires that the system under test (SUT) has received a message beforehand. These are listed in the 'Precondition' columns in the tables, at currently it can be either a HospitalNotification or CareCommunication, depending on the systems capabilities. 
-
-#### Use Cases
+When sending an Acknowledgement, a POST operation is required for all types of messages. All send test scripts requires that the system under test (SUT) has received a message beforehand. These are listed in the 'Precondition' columns in the tables, at currently it can be either a HospitalNotification or CareCommunication, depending on the systems capabilities. The use case codes starts with 'R', as they represent the receiving system of a message other that the acknowledgement. 
 
 [Test scripts for test of sending use cases, can be found here in TouchStone.](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/MedCom/Acknowledgement/v200/Send/PatientFlows&activeOnly=false&contentEntry=TEST_SCRIPTS)
 
@@ -66,7 +64,12 @@ When sending an Acknowledgement, a POST operation is required for all types of m
 | [OK](./TestScript-acknowledgement-send-ok.html) | R.TC3 | Send acknowledgement - OK | ok | HospitalNotification or <br> CareCommunication |
 | [Fatal-error](./TestScript-acknowledgement-send-fatal-error.html) | R.TC3 | Send acknowledgement - Fatal Error | fatal-error | HospitalNotification or <br> CareCommunication |
 | [Transient-error](./TestScript-acknowledgement-send-transient-error.html) | R.TC3 | Send acknowledgement - Transient Error | transient-error | HospitalNotification or <br> CareCommunication |
+| [OK-dublicate](./TestScript-acknowledgement-send-ok-dublicate.html) | R.TC1.A3 + | Send dublicate acknowledgement - OK
+ | ok | Two identical <br> HospitalNotification or <br> CareCommunication |
+| [Fatal-error-dublicate](./TestScript-acknowledgement-send-fatal-error-dublicate.html) | R.TC1.A3 | Send dublicate acknowledgement - Fatal Error | fatal-error | Two identical <br> HospitalNotification or <br> CareCommunication |
+| [Transient-error-dublicate](./TestScript-acknowledgement-send-transient-error-dublicate.html) | R.TC1.A3 | Send acknowledgements, as response to dublicate messages - Transient Error, followed by OK | Two identical <br> HospitalNotification or <br> CareCommunication |
 
++ USE CASE DOC UPDATED
 
 ### Receive Acknowledgement message
 When receiving an Acknowledgement, a GET operation is required for all tests. 
@@ -77,7 +80,11 @@ When receiving an Acknowledgement, a GET operation is required for all tests.
 
 | **Type** | **Use case <br> code** | **Description** | **Response code** | **Received in advance** |
 |---|---|---|---|---|
-| [OK](./TestScript-acknowledgement-receive-ok.html) | S.TC3 | Receive acknowledgement - OK | ok | HospitalNotification or <br> CareCommunication |
-| [Fatal-error](./TestScript-acknowledgement-receive-fatal-error.html) | S.TC3.A1 | Receive acknowledgement - Fatal Error | fatal-error | HospitalNotification or <br> CareCommunication |
-| [Transient-error](./TestScript-acknowledgement-receive-transient-error.html) | S.TC3.A2 | Receive acknowledgement - Transient Error | transient-error | HospitalNotification or <br> CareCommunication |
+| [OK](./TestScript-acknowledgement-receive-ok.html) | S.TC3 | Receive acknowledgement - OK | ok | |
+| [Fatal-error](./TestScript-acknowledgement-receive-fatal-error.html) | S.TC3.A1 | Receive acknowledgement - Fatal Error | fatal-error | |
+| [Transient-error](./TestScript-acknowledgement-receive-transient-error.html) | S.TC3.A2 | Receive acknowledgement - Transient Error | transient-error | |
+| [OK-dublicate](./TestScript-acknowledgement-receive-ok-dublicate.html) | S.TC5 | Receive dublicate acknowledgement - OK
+ | ok | Acknowledgement |
+| [Fatal-error-dublicate](./TestScript-acknowledgement-receive-fatal-error-dublicate.html) | S.TC5 | Receive dublicate acknowledgement - Fatal Error | fatal-error | Acknowledgement |
+| [Transient-error-dublicate](./TestScript-acknowledgement-receive-transient-error-dublicate.html) | S.TC5 | Receive dublicate acknowledgement - Transient Error | transient-error, ok | Acknowledgement |
 
