@@ -31,7 +31,7 @@ parameters:
 # use cases, the value can be an object with keys for id, uri, and version.
 #
 dependencies:
-  medcom.fhir.dk.acknowledgement: current
+#  medcom.fhir.dk.acknowledgement: current
 #  net.aegis.touchstone.fhir.testing:
 #    uri: 'http://touchstone.aegis.net/touchstone/fhir/testing/ImplementationGuide/net.aegis.touchstone.touchstone.fhir.testing'
 #    version: 1.6.0
