@@ -1,4 +1,4 @@
-RuleSet: createMessageSetup(responseCode, number, fixture)
+RuleSet: createMessageSetup(responseCode, number, fixture, bundleid)
 
 /* 
 Beskriver server og client for dette testsetup
@@ -26,6 +26,7 @@ Beskriver anvendte variable
 Beskriver de operationer der udføres i denne test. Her er det kun setup operationer
 */
 * insert operationCreateSetup({responseCode}, {number})
+* insert operationUpdateCreateSetup({responseCode}, {number}, {bundleid})
 
 /* 
 Beskriver den vurdering der sker af setup'et. Er det gået ok?

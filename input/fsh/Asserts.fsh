@@ -47,7 +47,7 @@ RuleSet: assertPayload
 RuleSet: assertOperationOutcome
 * test[=].action[+].assert.description = "Confirm that a OperationOutcome instance is included, when the responseCode is 'transient-error' or 'fatal-error'"
 * test[=].action[=].assert.direction = #request
-* test[=].action[=].assert.expression = "Bundle.entry.resource.ofType(MessageHeader).response.code = 'ok' or (Bundle.entry.resource.ofType(MessageHeader).response.code = 'transient-error' or 'fatal-error' and Bundle.entry.resource.ofType(OperationOutcome).exists())"
+* test[=].action[=].assert.expression = "Bundle.entry.resource.ofType(MessageHeader).response.code = 'ok' or ((Bundle.entry.resource.ofType(MessageHeader).response.code = 'transient-error' or Bundle.entry.resource.ofType(MessageHeader).response.code = 'fatal-error') and Bundle.entry.resource.ofType(OperationOutcome).exists())"
 * test[=].action[=].assert.warningOnly = false
 // 
 RuleSet: assertMessageHeaderEventCoding

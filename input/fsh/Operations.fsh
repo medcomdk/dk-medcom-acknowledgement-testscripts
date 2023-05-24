@@ -33,7 +33,18 @@ RuleSet: operationCreateMessage(responseCode, number)
 * test[=].action[=].operation.responseId = "create-message-{responseCode}"
 * test[=].action[=].operation.sourceId = "create-{responseCode}-{number}" 
 
-RuleSet: operationReadMessage(responseCode, number, destinationUri, bundleid)
+RuleSet: operationUpdateCreateSetup(responseCode, number, bundleid)
+* setup[=].action[+].operation.type.system = "http://terminology.hl7.org/CodeSystem/testscript-operation-codes"
+* setup[=].action[=].operation.type.code = #updateCreate
+* setup[=].action[=].operation.resource = #Bundle
+* setup[=].action[=].operation.description = "Update the Bundle.id in XML format on the destination server, so it corresponds to ${bundleid}."
+* setup[=].action[=].operation.accept = #xml
+* setup[=].action[=].operation.contentType = #xml
+* setup[=].action[=].operation.encodeRequestUrl = true
+* setup[=].action[=].operation.sourceId = "create-{responseCode}-{number}"
+* setup[=].action[=].operation.params = "/${{bundleid}}"
+
+RuleSet: operationReadMessage(responseCode, number, bundleid)
 * test[+].id = "message-read-{responseCode}-{number}" // Update Acknowledegment
 * test[=].name = "Get a {responseCode} message {number}"
 * test[=].description = "GET a message. The expected response is a 200(OK) with a payload of the message resource in XML format."
@@ -45,4 +56,4 @@ RuleSet: operationReadMessage(responseCode, number, destinationUri, bundleid)
 * test[=].action[=].operation.destination = 1
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
-* test[=].action[=].operation.params = "?message.destination-uri=${{destinationUri}}&amp;member._id=${{bundleid}}"
+* test[=].action[=].operation.params = "/${{bundleid}}"

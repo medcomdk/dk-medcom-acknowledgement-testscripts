@@ -1,4 +1,4 @@
-RuleSet: readMessage(responseCode, number, destinationUri, bundleid)
+RuleSet: readMessage(responseCode, number, bundleid)
 
 /* 
 Beskriver server og client for dette testsetup
@@ -9,7 +9,7 @@ Beskriver server og client for dette testsetup
 /* 
 Beskriver de operationer der udføres i denne test. Her er det kun setup operationer
 */
-* insert operationReadMessage({responseCode}, {number}, {destinationUri}, {bundleid})
+* insert operationReadMessage({responseCode}, {number}, {bundleid})
 
 /* 
 Beskriver den vurdering der sker af testen. Er det gået ok?
