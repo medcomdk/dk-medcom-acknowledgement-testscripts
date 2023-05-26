@@ -24,10 +24,20 @@ RuleSet: variableDestinationUri(responseCode, number)
 * variable[=].sourceId = "create-{responseCode}-{number}"
 
 RuleSet: variableBundleid(responseCode, number)
-* variable[+].name = "bundleid-{responseCode}"
+* variable[+].name = "bundleid-{responseCode}-{number}"
+* variable[=].expression = "Bundle.id"
+* variable[=].sourceId = "create-message-{responseCode}-{number}" 
+
+RuleSet: variableBundleidSetup(responseCode, number)
+* variable[+].name = "bundleid-{responseCode}-{number}"
 * variable[=].expression = "Bundle.id"
 * variable[=].sourceId = "create-{responseCode}-{number}" 
- 
+
+RuleSet: variableBundleTimestamp(responseCode, number)
+* variable[+].name = "bundletimestamp-{responseCode}-{number}"
+* variable[=].expression = "Bundle.timestamp"
+* variable[=].sourceId = "create-message-{responseCode}-{number}" 
+
 RuleSet: variableSearchParamIdentifier(responseCode)
 * variable[+].name = "searchParamIdentifier-{responseCode}" 
 * variable[=].expression = "Bundle.entry.resource.ofType(MessageHeader).id"

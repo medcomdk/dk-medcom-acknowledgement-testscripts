@@ -18,7 +18,7 @@ Beskriver anvendte variable
 //* insert variableMessageHeaderId({responseCode})
 * insert variableDestinationUri({responseCode}, {number})
 //* insert variableSearchParamIdentifier({responseCode})
-* insert variableBundleid({responseCode}, {number})
+* insert variableBundleidSetup({responseCode}, {number})
 //* insert variableEndpoint({responseCode}, {number})
 * insert variableMessageHeaderId({responseCode}, {number})
 

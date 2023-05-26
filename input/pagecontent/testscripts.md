@@ -10,7 +10,7 @@ Use cases described in the [use case document](https://medcomdk.github.io/dk-med
 Before getting started with test script execution, it is necessary to have an account on TouchStone and to create a test system. Please follow [this guide to setup an account and test system](https://medcomdk.github.io/MedComLandingPage/assets/documents/TouchStoneGettingStarted.html).
 
 #### Test script naming
-The name of the test scripts is constituted by Acknowledgement_Testscript_[send/receive]-[type], describing the type of messages being sent, or recieved. 'Acknowledgement_Testscript_[send/receive]-' is not shown in the naming below.
+In TouchStone, the name of the test scripts is constituted by Acknowledgement_Testscript_[send/receive]-[type], describing the type of messages being sent, or recieved. 'Acknowledgement_Testscript_[send/receive]-' is not shown in the naming below.
 
 #### Test examples/fixtures
 Test examples are, in TouchStone testing, called fixtures. These fixtures are available in TouchStone. During setup of a test, all relevant fixtures will automatically be uploaded to server and be used during test. From a client application e.g. a vendor's system, it is possible to request relevant fixture. Fixtures will be used during sending and receiving of an Acknowledgement.
@@ -31,17 +31,10 @@ Bundle.id will be generate during the test setup. The following line is included
 Which results in the following being generated during setup. For instance: 
   `<id value="b9b4818e-02de-4cc4-b418-d20cbc399006"/>`
 
-#### GET operation
-When searching for a HospitalNotification message, the GET operation requires Bundle.id to search for a specific message. 
-
-In the test scripts, the search parameter are: 
-  `"params": "/${bundleid-STIN}"`
-Which results in the following variable to be used in the GET operation. For instance: 
-  `http://touchstone.aegis.net:49917/fhir4-0-1/Bundle/88e6c08e-10b6-4c7e-aa70-c0db45933e50`
 #### Operations
 When sending an Acknowledgement, a POST operation is used for all messages and when receiving an Acknowledgement or another message type, a GET operation is used for all tests. 
 
-#### GET operation
+##### GET operation
 When searching for an Acknowledgement message or another message type from an API, the GET operation requires Bundle.id to search for a specific message.
 
 In the test scripts, the search parameter are: 
@@ -49,8 +42,11 @@ In the test scripts, the search parameter are:
 Which results in the following variable to be used in the GET operation. For instance: 
   `http://touchstone.aegis.net:49917/fhir4-0-1/Bundle/88e6c08e-10b6-4c7e-aa70-c0db45933e50`
 
+##### POST operation
+When the POST operation represents sending a message. When posting a message it must be directed to the correct endpoint, which is given by TouchStone, and it must include the Bundle being send. 
+
 ### Send Acknowledgement test scripts
-When sending an Acknowledgement, a POST operation is required for all types of messages. All send test scripts requires that the system under test (SUT) has received a message beforehand. These are listed in the 'Precondition' columns in the tables, currently it can be a HospitalNotification, but will be extended to receiving af CareCommunication. The use case codes starts with 'R', as they represent the receiving system of a message other than an Acknowledgement, but is the sending system of an Acknowledgement. 
+When sending an Acknowledgement, a POST operation is required for all types of messages. All send test scripts requires that the system under test (SUT) has received a message beforehand. These are listed in the 'Precondition' columns in the tables, currently it can be a HospitalNotification, but will be extended to receiving af CareCommunication. The use case codes starts with 'R', as they represent the receiving system of a MedCom FHIR message, but actually is the sending system of an Acknowledgement. 
 
 [Test scripts for test of sending use cases, can be found here in TouchStone.](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/MedCom/Acknowledgement/v200/Send/PatientFlows&activeOnly=false&contentEntry=TEST_SCRIPTS)
 
@@ -68,7 +64,7 @@ When sending an Acknowledgement, a POST operation is required for all types of m
 
 
 ### Receive Acknowledgement message
-When receiving an Acknowledgement, a GET operation is required for all tests. The use case codes starts with 'S', as they represent the sending system of a message other than an Acknowledgement, but is the receiving system of an Acknowledgement. 
+When receiving an Acknowledgement, a GET operation is required for all tests. The use case codes starts with 'S', as they represent the sending system of a MedCom FHIR message, but is the receiving system of an Acknowledgement. 
 
 #### Use Cases
 

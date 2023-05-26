@@ -30,7 +30,7 @@ RuleSet: operationCreateMessage(responseCode, number)
 * test[=].action[=].operation.destination = 1
 * test[=].action[=].operation.encodeRequestUrl = true
 * test[=].action[=].operation.origin = 1
-* test[=].action[=].operation.responseId = "create-message-{responseCode}"
+* test[=].action[=].operation.requestId = "create-message-{responseCode}-{number}"
 * test[=].action[=].operation.sourceId = "create-{responseCode}-{number}" 
 
 RuleSet: operationUpdateCreateSetup(responseCode, number, bundleid)
@@ -43,6 +43,17 @@ RuleSet: operationUpdateCreateSetup(responseCode, number, bundleid)
 * setup[=].action[=].operation.encodeRequestUrl = true
 * setup[=].action[=].operation.sourceId = "create-{responseCode}-{number}"
 * setup[=].action[=].operation.params = "/${{bundleid}}"
+
+RuleSet: operationUpdateCreateTest(responseCode, number, bundleid)
+* test[=].action[+].operation.type.system = "http://terminology.hl7.org/CodeSystem/testscript-operation-codes"
+* test[=].action[=].operation.type.code = #updateCreate
+* test[=].action[=].operation.resource = #Bundle
+* test[=].action[=].operation.description = "Update the Bundle.id in XML format on the destination server, so it corresponds to ${bundleid}."
+* test[=].action[=].operation.accept = #xml
+* test[=].action[=].operation.contentType = #xml
+* test[=].action[=].operation.encodeRequestUrl = true
+* test[=].action[=].operation.sourceId = "create-{responseCode}-{number}"
+* test[=].action[=].operation.params = "/${{bundleid}}"
 
 RuleSet: operationReadMessage(responseCode, number, bundleid)
 * test[+].id = "message-read-{responseCode}-{number}" // Update Acknowledegment

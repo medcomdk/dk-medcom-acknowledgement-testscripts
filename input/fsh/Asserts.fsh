@@ -90,3 +90,16 @@ RuleSet: assertProvenanceEntityRole(role)
 * test[=].action[=].assert.operator = #notFound
 * test[=].action[=].assert.value = "{deceased}"
 * test[=].action[=].assert.warningOnly = false */
+
+RuleSet: assertBundleId(bundleid1, bundleid2)
+* test[=].action[+].assert.description = "Confirm that the Bundle.id of the two Acknowledgements are different."
+* test[=].action[=].assert.direction = #request
+* test[=].action[=].assert.expression = "'${{bundleid1}}' != '${{bundleid2}}'"
+* test[=].action[=].assert.warningOnly = false
+
+
+RuleSet: assertBundleTimestamp(timestamp1, timestamp2)
+* test[=].action[+].assert.description = "Confirm that the Bundle.timestamp of the two Acknowledgements are different."
+* test[=].action[=].assert.direction = #request
+* test[=].action[=].assert.expression = "'${{timestamp1}}' != '${{timestamp2}}'"
+* test[=].action[=].assert.warningOnly = false
