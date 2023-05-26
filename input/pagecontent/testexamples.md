@@ -9,5 +9,5 @@ Below are the test examples presented for receiving an Acknowledgement. The exam
 |  Test example     |     Description     |
 |---|---|
 | [ACK_AA_A](./Bundle-b3c91031-85e6-4793-bca5-7b0de166fbf2.html) | An Acknowledgement with response code 'OK'  |
-| [ACK_AR_B](./Bundle-fd618b85-9376-45ac-b0bd-67b0541f4fa4.html) | An Acknowledgement with response code 'transient error'   |
-| [ACK_AE_C](./Bundle-32f3e314-8fcb-4147-87d4-fbed2ea2f741.html) | An Acknowledgement with response code 'fatal error'  |
+| [ACK_AR_B](./Bundle-32f3e314-8fcb-4147-87d4-fbed2ea2f741.html) | An Acknowledgement with response code 'transient error'   |
+| [ACK_AE_C](./Bundle-fd618b85-9376-45ac-b0bd-67b0541f4fa4.html) | An Acknowledgement with response code 'fatal error'  |
