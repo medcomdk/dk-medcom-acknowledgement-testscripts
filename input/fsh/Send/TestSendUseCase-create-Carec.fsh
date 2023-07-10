@@ -1,4 +1,4 @@
-/* //OK
+//OK
 Instance: Acknowledgement_TestScript_OK-carecommunication
 InstanceOf: TestScript
 * insert Metadata
@@ -7,9 +7,9 @@ InstanceOf: TestScript
 * title = "Send acknowledgement - OK"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-ok-carecommunication" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(STIN, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/CareCommunicationfixture-STIN-ok.xml, destinationUri-STIN)
-* insert readMessage(STIN, 01, destinationUri-STIN, bundleid-STIN)
-* insert createMessage(ok, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-STIN) 
+* insert createInitialMessageSetup(new-message, 01, /Fixtures/CareCommunication-fixture-new-message-ok.xml, destinationUri-new-message, bundleid-new-message-01)
+* insert readMessage(new-message, 01, bundleid-new-message-01)
+* insert createMessage(ok, 02, /Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-new-message) 
 
 //Fatal Error
 Instance: Acknowledgement_TestScript_Fatal-error-carecommunication
@@ -20,9 +20,9 @@ InstanceOf: TestScript
 * title = "Send acknowledgement - Fatal Error"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-fatal-error-carecommunication" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(STIN, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/CareCommunicationfixture-STIN-fatal-error.xml, destinationUri-STIN)
-* insert readMessage(STIN, 01, destinationUri-STIN, bundleid-STIN)
-* insert createMessage(fatal-error, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-STIN) 
+* insert createInitialMessageSetup(new-message, 01, /Fixtures/CareCommunication-fixture-new-message-fatal-error.xml, destinationUri-new-message, bundleid-new-message-01)
+* insert readMessage(new-message, 01, bundleid-new-message-01)
+* insert createMessage(fatal-error, 02, /Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-new-message) 
 
 //Transient Error
 Instance: Acknowledgement_TestScript_Transient-error-carecommunication
@@ -33,9 +33,9 @@ InstanceOf: TestScript
 * title = "Send acknowledgement - Transient Error"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-transient-error-carecommunication" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(STIN, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/CareCommunicationfixture-STIN-transient-error.xml, destinationUri-STIN)
-* insert readMessage(STIN, 01, destinationUri-STIN, bundleid-STIN)
-* insert createMessage(transient-error, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-STIN) 
+* insert createInitialMessageSetup(new-message, 01, /Fixtures/CareCommunication-fixture-new-message-transient-error.xml, destinationUri-new-message, bundleid-new-message-01)
+* insert readMessage(new-message, 01, bundleid-new-message-01)
+* insert createMessage(transient-error, 02, /Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-new-message) 
 
 
 //OK - duplicate
@@ -47,12 +47,12 @@ InstanceOf: TestScript
 * title = "Send duplicate acknowledgement - OK"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-ok-duplicate-carecommunication" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(STIN, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/CareCommunicationfixture-STIN-ok.xml, destinationUri-STIN)
-* insert createMessageSetup(STIN2, 03, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/CareCommunicationfixture-STIN-ok.xml)
-* insert readMessage(STIN, 01, destinationUri-STIN, bundleid-STIN)
-* insert createMessage(ok, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-STIN) 
-* insert readMessage(STIN2, 03, destinationUri-STIN2, bundleid-STIN2)
-* insert createMessage(ok, 04, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-STIN2) 
+* insert createInitialMessageSetup(new-message, 01, /Fixtures/CareCommunication-fixture-new-message-ok.xml, destinationUri-new-message, bundleid-new-message-01)
+* insert createMessageSetup(new-message2, 03, /Fixtures/CareCommunication-fixture-new-message-ok.xml, bundleid-new-message2-03)
+* insert readMessage(new-message, 01, bundleid-new-message-01)
+* insert createMessage(ok, 02, /Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-new-message) 
+* insert readMessage(new-message2, 03, bundleid-new-message2-03)
+* insert createMessage(ok, 04, /Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-new-message2) 
 
 //Fatal Error - duplicate
 Instance: Acknowledgement_TestScript_Fatal-error-duplicate-carecommunication
@@ -63,26 +63,25 @@ InstanceOf: TestScript
 * title = "Send duplicate acknowledgement - Fatal Error"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-fatal-error-duplicate-carecommunication" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(STIN, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/CareCommunicationfixture-STIN-fatal-error.xml, destinationUri-STIN)
-* insert createMessageSetup(STIN2, 03, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/CareCommunicationfixture-STIN-fatal-error.xml)
-* insert readMessage(STIN, 01, destinationUri-STIN, bundleid-STIN)
-* insert createMessage(fatal-error, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-STIN) 
-* insert readMessage(STIN2, 03, destinationUri-STIN2, bundleid-STIN2)
-* insert createMessage(fatal-error, 04, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-STIN2) 
+* insert createInitialMessageSetup(new-message, 01, /Fixtures/CareCommunication-fixture-new-message-fatal-error.xml, destinationUri-new-message, bundleid-new-message-01)
+* insert createMessageSetup(new-message2, 03, /Fixtures/CareCommunication-fixture-new-message-fatal-error.xml, bundleid-new-message2-03)
+* insert readMessage(new-message, 01, bundleid-new-message-01)
+* insert createMessage(fatal-error, 02, /Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-new-message) 
+* insert readMessage(new-message2, 03, bundleid-new-message2-03)
+* insert createMessage(fatal-error, 04, /Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-new-message2) 
 
 //Transient Error - duplicate
 Instance: Acknowledgement_TestScript_Transient-error-duplicate-carecommunication
 InstanceOf: TestScript
 * insert Metadata
-* id = "acknowledgement-send-transient-error-duplicate-hospitalnotificat"
+* id = "acknowledgement-send-transient-error-duplicate-carecommunication"
 * description = "Send acknowledgements, as response to duplicate messages - Transient Error, followed by OK"
 * title = "Send acknowledgements, as response to duplicate messages - Transient Error, followed by OK"
-* url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-transient-error-duplicate-hospitalnotificat" 
+* url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-send-transient-error-duplicate-carecommunication" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(STIN, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/CareCommunicationfixture-STIN-transient-error.xml, destinationUri-STIN)
-* insert createMessageSetup(STIN2, 03, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/CareCommunicationfixture-STIN-ok.xml)
-* insert readMessage(STIN, 01, destinationUri-STIN, bundleid-STIN)
-* insert createMessage(transient-error, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-STIN) 
-* insert readMessage(STIN2, 03, destinationUri-STIN2, bundleid-STIN2)
-* insert createMessage(ok, 04, /FHIRSandbox/MedCom/Acknowledgement/draft/Send/Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-STIN2) 
- */
+* insert createInitialMessageSetup(new-message, 01, /Fixtures/CareCommunication-fixture-new-message-transient-error.xml, destinationUri-new-message, bundleid-new-message-01)
+* insert createMessageSetup(new-message2, 03, /Fixtures/CareCommunication-fixture-new-message-ok.xml, bundleid-new-message2-03)
+* insert readMessage(new-message, 01, bundleid-new-message-01)
+* insert createMessage(transient-error, 02, /Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-new-message) 
+* insert readMessage(new-message2, 03, bundleid-new-message2-03)
+* insert createMessage(ok, 04, /Fixtures/Acknowledgement-fixture.xml, revision, messageHeaderid-new-message2) 

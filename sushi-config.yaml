@@ -8,11 +8,11 @@ canonical: http://medcomfhir.dk/ig/acknowledgementtestscripts  # e.g. http://med
 name: Acknowledgement Test scripts           # e.g. HospitalNotification Test scripts
 title: Acknowledgement Test scripts          # e.g. HospitalNotification Test scripts
 description: Test scripts for Acknowledgement v. 2.0.0 # Test scripts for HospitalNotification v. 3.0.0
-status: draft # draft | active | retired | unknown # choose 'active' before release
-version: 2.0.0
+status: active # draft | active  | retired | unknown # choose 'active' before release
+version: 2.0.1
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2022+
-releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
+releaseLabel: release # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
 license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 # jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
 publisher: MedCom
@@ -31,10 +31,10 @@ parameters:
 # use cases, the value can be an object with keys for id, uri, and version.
 #
 dependencies:
-#  medcom.fhir.dk.acknowledgement: current
-#  net.aegis.touchstone.fhir.testing:
-#    uri: 'http://touchstone.aegis.net/touchstone/fhir/testing/ImplementationGuide/net.aegis.touchstone.touchstone.fhir.testing'
-#    version: 1.6.0
+  medcom.fhir.dk.acknowledgement: current
+  net.aegis.touchstone.fhir.testing:
+    uri: 'http://touchstone.aegis.net/touchstone/fhir/testing/ImplementationGuide/net.aegis.touchstone.touchstone.fhir.testing'
+    version: 1.6.0
 
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
@@ -42,8 +42,8 @@ dependencies:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   IG Home: index.html
-  Test scripts: testscripts.html
-  Test examples: testexamples.html # if relevant
+  Test scripts used in TouchStone: testscripts.html
+  Test examples for test protocols: testexamples.html # if relevant
   Artifacts Summary: artifacts.html
   Download: downloads.html
 

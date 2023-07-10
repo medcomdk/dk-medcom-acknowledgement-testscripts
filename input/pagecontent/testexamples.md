@@ -6,6 +6,8 @@ No test patient/citizens are used to test the Acknowledgement message. Any of Me
 #### Test examples for receiving Acknowledgement
 Below are the test examples presented for receiving an Acknowledgement. The examples may need to be adjusted to fit the references (MessageHeader.id and Provenance instance) from the message being acknowledged (e.g. HospitalNotification or CareCommunication).
 
+[Download test examples for receiving an Acknowledgement (.zip)](./Acknowledgement/Acknowledgement_Ex_receive.zip)
+
 |  Test example     |     Description     |
 |---|---|
 | [ACK_AA_A](./Bundle-b3c91031-85e6-4793-bca5-7b0de166fbf2.html) | An Acknowledgement with response code 'OK'  |

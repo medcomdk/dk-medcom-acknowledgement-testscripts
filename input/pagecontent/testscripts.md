@@ -58,12 +58,17 @@ When sending an Acknowledgement, a POST operation is required for all types of m
 | [Transient-error](./TestScript-acknowledgement-send-transient-error-hospitalnotification.html) | R.TC3 | Send acknowledgement - Transient Error | transient-error | HospitalNotification (STIN) |
 | [OK-duplicate](./TestScript-acknowledgement-send-ok-duplicate-hospitalnotification.html) | R.TC1.A3 | Send duplicate acknowledgement - OK | ok | Two identical <br> HospitalNotification (STIN)|
 | [Fatal-error-duplicate](./TestScript-acknowledgement-send-fatal-error-duplicate-hospitalnotification.html) | R.TC1.A3 | Send duplicate acknowledgement - Fatal Error | fatal-error | Two identical <br> HospitalNotifications (STIN)|
-| [Transient-error-duplicate](./TestScript-acknowledgement-send-transient-error-duplicate-hospitalnotificat.html) | R.TC1.A3 | Send acknowledgements, as response to duplicate <br> messages - Transient Error, followed by OK | transient-error <br> ok| Two identical <br> HospitalNotification (STIN)|
+| [Transient-error-duplicate](./TestScript-acknowledgement-send-transient-error-duplicate-hospitalnotification.html) | R.TC1.A3 | Send acknowledgements, as response to duplicate <br> messages - Transient Error, followed by OK | transient-error <br> ok| Two <br> HospitalNotification (STIN)|
 | **Acknowledging based on received CareCommunication** |  | |  |  |
-| [TBD] |  | |  |  |
+| [OK](./TestScript-acknowledgement-send-ok-carecommunication.html) | R.TC3 | Send acknowledgement - OK | ok | CareCommunication (new-message) |
+| [Fatal-error](./TestScript-acknowledgement-send-fatal-error-carecommunication.html) | R.TC3 | Send acknowledgement - Fatal Error | fatal-error | CareCommunication (new-message)|
+| [Transient-error](./TestScript-acknowledgement-send-transient-error-carecommunication.html) | R.TC3 | Send acknowledgement - Transient Error | transient-error | CareCommunication (new-message) |
+| [OK-duplicate](./TestScript-acknowledgement-send-ok-duplicate-carecommunication.html) | R.TC1.A3 | Send duplicate acknowledgement - OK | ok | Two identical <br> CareCommunication (new-message)|
+| [Fatal-error-duplicate](./TestScript-acknowledgement-send-fatal-error-duplicate-carecommunication.html) | R.TC1.A3 | Send duplicate acknowledgement - Fatal Error | fatal-error | Two identical <br> CareCommunication (new-message)|
+| [Transient-error-duplicate](./TestScript-acknowledgement-send-transient-error-duplicate-carecommunication.html) | R.TC1.A3 | Send acknowledgements, as response to duplicate <br> messages - Transient Error, followed by OK | transient-error <br> ok| Two <br> CareCommunication (new-message)|
 
 
-### Receive Acknowledgement message
+### Receive Acknowledgement test scripts
 When receiving an Acknowledgement, a GET operation is required for all tests. The use case codes starts with 'S', as they represent the sending system of a MedCom FHIR message, but is the receiving system of an Acknowledgement. 
 
 #### Use Cases

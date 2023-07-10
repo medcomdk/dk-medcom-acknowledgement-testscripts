@@ -27,9 +27,9 @@ RuleSet: assertValidateProfiles
 * test[=].action[=].assert.warningOnly = false
 
 RuleSet: assertMessageHeaderid(messageHeaderid)
-* test[=].action[+].assert.description = "Confirm that the previous MessageHeader fullURL is identical to Provenance.entity.what" 
+* test[=].action[+].assert.description = "Confirm that MessageHeader.id from the previous message is contained to Provenance.entity.what.reference" 
 * test[=].action[=].assert.direction = #request
-* test[=].action[=].assert.expression = "Bundle.entry.resource.ofType(Provenance).where(entity.what.reference = '${{messageHeaderid}}').count() = 1"
+* test[=].action[=].assert.expression = "Bundle.entry.resource.ofType(Provenance).where(entity.what.reference.contains('${{messageHeaderid}}')).exists()"
 * test[=].action[=].assert.warningOnly = false
 
 RuleSet: assertMessageHeaderResponseCode(responseCode)
@@ -66,7 +66,7 @@ RuleSet: assertProvenanceActivityCode
 RuleSet: assertProvenanceTarget
 * test[=].action[+].assert.description = "Confirm that the target reference in Provenance equals MessageHeader.id"
 * test[=].action[=].assert.direction = #request
-* test[=].action[=].assert.expression = "Bundle.entry.resource.ofType(Provenance).where(target.reference = %resource.entry[0].fullUrl).exists()"
+* test[=].action[=].assert.expression = "Bundle.entry.resource.ofType(Provenance).where(target.reference.contains(%resource.entry[0].resource.id)).exists()"
 * test[=].action[=].assert.warningOnly = false
 
 RuleSet: assertProvenanceEntityCount
@@ -78,7 +78,7 @@ RuleSet: assertProvenanceEntityCount
 RuleSet: assertProvenanceEntityRole(role)
 * test[=].action[+].assert.description = "Confirm that the role is set to {role}. Not used when testing the first message in a stream"
 * test[=].action[=].assert.direction = #request
-* test[=].action[=].assert.expression = "Bundle.entry.resource.ofType(Provenance).entity.role"
+* test[=].action[=].assert.expression = "Bundle.entry.resource.ofType(Provenance).where(target.reference.contains(%resource.entry[0].resource.id)).entity.role"
 * test[=].action[=].assert.operator = #equals
 * test[=].action[=].assert.value = "{role}"
 * test[=].action[=].assert.warningOnly = false
