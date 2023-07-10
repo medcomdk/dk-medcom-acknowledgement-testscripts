@@ -32,9 +32,9 @@ parameters:
 #
 dependencies:
   medcom.fhir.dk.acknowledgement: current
-  net.aegis.touchstone.fhir.testing:
-    uri: 'http://touchstone.aegis.net/touchstone/fhir/testing/ImplementationGuide/net.aegis.touchstone.touchstone.fhir.testing'
-    version: 1.6.0
+#  net.aegis.touchstone.fhir.testing:
+#    uri: 'http://touchstone.aegis.net/touchstone/fhir/testing/ImplementationGuide/net.aegis.touchstone.touchstone.fhir.testing'
+#    version: 1.6.0
 
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
