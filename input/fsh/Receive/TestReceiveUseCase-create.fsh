@@ -7,7 +7,7 @@ InstanceOf: TestScript
 * title = "Receive Acknowledgement - OK"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-receive-ok" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(ok, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-ok.xml, destinationUri-ok, bundleid-ok-01)
+* insert createInitialMessageSetup(ok, 01, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-ok.xml, destinationUri-ok, bundleid-ok-01)
 * insert readMessage(ok, 01, bundleid-ok-01)
 
  //Get ok X 2
@@ -19,8 +19,8 @@ InstanceOf: TestScript
 * title = "Receive duplicate acknowledgement - OK"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-receive-ok-duplicate" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(ok, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-ok.xml, destinationUri-ok, bundleid-ok-01)
-* insert createMessageSetup(ok2, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-ok.xml, bundleid-ok2-02)
+* insert createInitialMessageSetup(ok, 01, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-ok.xml, destinationUri-ok, bundleid-ok-01)
+* insert createMessageSetup(ok2, 02, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-ok.xml, bundleid-ok2-02)
 * insert readMessage(ok, 01, bundleid-ok-01)
 * insert readMessage(ok2, 02, bundleid-ok2-02)
 
@@ -33,7 +33,7 @@ InstanceOf: TestScript
 * title = "Receive Acknowledgement - Fatal Error"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-receive-fatal-error" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(fatal-error, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-fatal-error.xml, destinationUri-fatal-error, bundleid-fatal-error-01)
+* insert createInitialMessageSetup(fatal-error, 01, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-fatal-error.xml, destinationUri-fatal-error, bundleid-fatal-error-01)
 * insert readMessage(fatal-error, 01, bundleid-fatal-error-01)
 
  //Get fatal-error X 2
@@ -45,8 +45,8 @@ InstanceOf: TestScript
 * title = "Receive duplicate acknowledgement - Fatal Error"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-receive-fatal-error-duplicate" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(fatal-error, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-fatal-error.xml, destinationUri-fatal-error, bundleid-fatal-error-01)
-* insert createMessageSetup(fatal-error2, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-fatal-error.xml, bundleid-fatal-error2-02)
+* insert createInitialMessageSetup(fatal-error, 01, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-fatal-error.xml, destinationUri-fatal-error, bundleid-fatal-error-01)
+* insert createMessageSetup(fatal-error2, 02, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-fatal-error.xml, bundleid-fatal-error2-02)
 * insert readMessage(fatal-error, 01, bundleid-fatal-error-01)
 * insert readMessage(fatal-error2, 02, bundleid-fatal-error2-02)
 
@@ -60,7 +60,7 @@ InstanceOf: TestScript
 * title = "Receive Acknowledgement - Transient Error"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-receive-transient-error" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(transient-error, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-transient-error.xml, destinationUri-transient-error, bundleid-transient-error-01)
+* insert createInitialMessageSetup(transient-error, 01, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-transient-error.xml, destinationUri-transient-error, bundleid-transient-error-01)
 * insert readMessage(transient-error, 01, bundleid-transient-error-01)
 
  //Get transient-error X 2
@@ -72,8 +72,8 @@ InstanceOf: TestScript
 * title = "Receive duplicate acknowledgement - Transient Error"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-receive-transient-error-duplicate" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(transient-error, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-transient-error.xml, destinationUri-transient-error, bundleid-transient-error-01)
-* insert createMessageSetup(transient-error2, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-transient-error.xml, bundleid-transient-error2-02)
+* insert createInitialMessageSetup(transient-error, 01, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-transient-error.xml, destinationUri-transient-error, bundleid-transient-error-01)
+* insert createMessageSetup(transient-error2, 02, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-transient-error.xml, bundleid-transient-error2-02)
 * insert readMessage(transient-error, 01, bundleid-transient-error-01)
 * insert readMessage(transient-error2, 02, bundleid-transient-error2-02)
 
@@ -86,7 +86,7 @@ InstanceOf: TestScript
 * title = "Receive acknowledgements - Transient Error, followed by OK"
 * url = "http://medcomfhir.dk/ig/acknowledgementtestscript/acknowledgement-receive-transient-error-ok" 
 * name = "AcknowledgementTestScript"
-* insert createInitialMessageSetup(transient-error, 01, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-transient-error.xml, destinationUri-transient-error, bundleid-transient-error-01)
-* insert createMessageSetup(ok, 02, /FHIRSandbox/MedCom/Acknowledgement/draft/Receive/Fixtures/Acknowledgement-fixture-ok.xml, bundleid-ok-02)
+* insert createInitialMessageSetup(transient-error, 01, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-transient-error.xml, destinationUri-transient-error, bundleid-transient-error-01)
+* insert createMessageSetup(ok, 02, /FHIRSandbox/MedCom/Acknowledgement/v200-receive/Fixtures/Acknowledgement-fixture-ok.xml, bundleid-ok-02)
 * insert readMessage(transient-error, 01, bundleid-transient-error-01)
 * insert readMessage(ok, 02, bundleid-ok-02)
